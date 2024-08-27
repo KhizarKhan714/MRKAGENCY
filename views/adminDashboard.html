@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Admin Dashboard</h2>
+        <h3>Manage Users</h3>
+        <div id="users"></div>
+
+        <h3>Manage Services</h3>
+        <div id="services"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MRK Agency. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Fetch and display users and services
+        fetch('/api/admin/users')
+            .then(response => response.json())
+            .then(data => {
+                const usersDiv = document.getElementById('users');
+                data.forEach(user => {
+                    usersDiv.innerHTML += `<p>${user.name} (${user.email})</p>`;
+                });
+            });
+
+        fetch('/api/admin/services')
+            .then(response => response.json())
+            .then(data => {
+                const servicesDiv = document.getElementById('services');
+                data.forEach(service => {
+                    servicesDiv.innerHTML += `<p>${service.title}: $${service.price}</p>`;
+                });
+            });
+    </script>
+</body>
+</html>

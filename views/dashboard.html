@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Welcome, <%= user.name %></h2>
+        <div>
+            <h3>Your Details:</h3>
+            <p>Email: <%= user.email %></p>
+        </div>
+        <a href="/update-profile">Update Profile</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MRK Agency. All rights reserved.</p>
+    </footer>
+</body>
+</html>
